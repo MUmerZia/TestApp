@@ -24,7 +24,7 @@ const LoginScreen = () => {
     const handleLogin = async(data:any) => { 
        const res = await dispatch(login(data)).unwrap()
        console.log('res: ', res);
-       if(res?.token !== ''){
+       if(res?.token !== '' && res?.token !== undefined){
         navigation.navigate('home')
        }
     };
