@@ -21,12 +21,12 @@ const LoginScreen = () => {
     });
 
 
-    const handleLogin = async(data:any) => { 
-       const res = await dispatch(login(data)).unwrap()
-       console.log('res: ', res);
-       if(res?.token !== '' && res?.token !== undefined){
-        navigation.navigate('home')
-       }
+    const handleLogin = async (data: any) => {
+        const res = await dispatch(login(data)).unwrap()
+        console.log('res: ', res);
+        if (res?.token !== '' && res?.token !== undefined) {
+            navigation.navigate('home')
+        }
     };
 
     return (
@@ -43,10 +43,11 @@ const LoginScreen = () => {
                 }}
                 render={({ field: { onChange, value } }) => (
                     <AppInput
-                        error={errors.email?.message} 
+                        error={errors.email?.message}
                         placeholder='Email'
                         value={value}
                         onChangeText={onChange}
+                        inputStyle={{ color: '#000' }} 
                     />
                 )}
             />
@@ -57,6 +58,7 @@ const LoginScreen = () => {
                 rules={{ required: 'Password is required' }}
                 render={({ field: { onChange, value } }) => (
                     <AppInput
+                        inputStyle={{ color: '#000' }}
                         style={{ marginTop: 20 }}
                         error={errors.password?.message}
                         placeholder='Password'
@@ -86,13 +88,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 20,
     },
-    btn:{
+    btn: {
         backgroundColor: '#16445B',
         height: 50,
         paddingVertical: 10,
         borderRadius: 5,
     },
-    btnBox:{
+    btnBox: {
         width: '90%',
         marginTop: 23,
         paddingVertical: 40,
